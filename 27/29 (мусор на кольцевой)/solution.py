@@ -1,21 +1,34 @@
-f = open('EGE-2024/27/14/27-B.txt')
-N = f.readline()
+f = open('27/29 (мусор на кольцевой)/txt.txt')
+f = open('27/29 (мусор на кольцевой)/107_27_B.txt')
 
-sum_1 = sum_2 = sum_3 = 0
-mindiverens = []
-for data in f:
-    data = sorted(map(int, data.split()))
-    diverens = min(data[2] - data[1], data[2] - data[1])
-    if diverens != 0 and diverens not in mindiverens:
-        mindiverens.append(diverens)
-    sum_1 += data[0]
-    sum_2 += data[1]
-    sum_3 += data[2]
+N = int(f.readline())
 
-mindiverens.sort()
+points = [int(x) * 3 for x in f]
+distanse = [0] * N
+right_sum = 0
+left_sum = 0
+sum_0 = 0
 
 
-if sum_1 % 2 == sum_2 % 2:
-    sum_3 -= mindiverens[0]
+for i in range(1, N // 2 + 1):
+    if i == N / 2:
+        sum_0 += (points[i] * i)
+    else:
+        sum_0 += (points[i] * i + points[-i] * i)
+    
+    right_sum += points[i]
+    left_sum += points[N - i]
 
-print(sum_3)
+
+distanse[0] = sum_0
+
+for i in range(1, N):
+    shift = left_sum - right_sum
+    left_point = points[(i + (N // 2) - 1) % N]
+    right_point = points[(i - (N // 2)) % N]
+   
+    distanse[i] = distanse[i - 1] + points[i - 1] - left_point + shift
+    right_sum += left_point - points[i] 
+    left_sum += points[i-1] - right_point
+
+print(min(distanse))
