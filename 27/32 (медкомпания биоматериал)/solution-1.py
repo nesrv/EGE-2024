@@ -1,12 +1,13 @@
 from math import ceil
-f = open('27/32 медкомпания биоматериал/27_A.txt')
+f = open('27/32 (медкомпания биоматериал)/txt.txt')
 N = int(f.readline())
 
 points = [
-    [next(data), ceil(next(data) / 36)]
+    [next(data), ceil(next(data) / 96)]
     for line in f
     if (data := map(int, line.split()))]
 
+print(*points)
 
 min_price = 10**10
 for curren_point in points:
@@ -18,3 +19,4 @@ for curren_point in points:
     min_price = min(min_price, cur_price)
 
 print(min_price)
+print(8+6+5+3+10)
