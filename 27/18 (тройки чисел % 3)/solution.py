@@ -1,21 +1,18 @@
-f = open('EGE-2024/27/14/27-B.txt')
-N = f.readline()
+lst = '''
+0
+4
+5
+8
+14
+11
+'''.strip().split('\n')
+lst = [int(x) for x in lst]
+lst.sort()
+print(lst)
+b_0 = [i for i in lst if i % 3 == 0][-3:]
+b_1 = [i for i in lst if i % 3 == 1][-3:]
+b_2 = [i for i in lst if i % 3 == 2][-3:]
 
-sum_1 = sum_2 = sum_3 = 0
-mindiverens = []
-for data in f:
-    data = sorted(map(int, data.split()))
-    diverens = min(data[2] - data[1], data[2] - data[1])
-    if diverens != 0 and diverens not in mindiverens:
-        mindiverens.append(diverens)
-    sum_1 += data[0]
-    sum_2 += data[1]
-    sum_3 += data[2]
+print(b_0, b_1, b_2)
 
-mindiverens.sort()
-
-
-if sum_1 % 2 == sum_2 % 2:
-    sum_3 -= mindiverens[0]
-
-print(sum_3)
+print(max(sum(b_0), sum(b_1), sum(b_2), b_1[-1] + b_2[-1] + b_0[-1]))
