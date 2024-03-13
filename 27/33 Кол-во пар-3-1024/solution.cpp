@@ -18,7 +18,7 @@ int main() {
   	for (int j = i + 1; j < n; j++){
   		if ( (a[i] + a[j]) % 3 == 0 and (a[i]*a[j]) % 1024==0) count++;
 	  }
-//  cout << clock() << endl;	  
+	cout << i << endl;	  
   }
   cout << count << endl;
   return 0;
