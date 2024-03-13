@@ -1,6 +1,8 @@
+
 P = set(range(5, 31))
 Q = set(range(14, 24))
 
+# способ 1
 res = []
 for Amin in range(1, 101):
     for Amax in range(Amin + 1, 101):
@@ -12,8 +14,10 @@ for Amin in range(1, 101):
             res.append(Amax - Amin)
 print(max(res))
 
+
+# способ 2
 points = 5, 14, 23, 30
-maxA = 0
+
 
 res = []
 for startA in points:
@@ -26,12 +30,12 @@ for startA in points:
 
 print(max(res))
 
-P = set(range(5, 31))
-Q = set(range(14, 24))
+# способ 3
+
 res = []
 for a, b in zip(points[:-1], points[1:]):
     A = set(range(a, b + 1))
-    for x in range(1,101):
+    for x in range(1, 101):
         if not ((x in P) == (x in Q)) <= (not (x in A)):
             break
         else:
@@ -39,8 +43,7 @@ for a, b in zip(points[:-1], points[1:]):
 print(max(res))
 
 
-P = set(range(5, 31))
-Q = set(range(14, 24))
+# способ 4
 res = []
 for a, b in zip(points[:-1], points[1:]):
     A = set(range(a, b + 1))
@@ -49,3 +52,30 @@ for a, b in zip(points[:-1], points[1:]):
     else:
         res.append(b - a)
 print(max(res))
+
+
+# способ 5
+res = []
+
+
+
+for a, b in zip((5, 14, 23), (14, 23, 30)):
+    A = set(range(a, b + 1))
+    print(1, A)
+    if (P == Q) <= (not A):
+        res.append(b - a)
+print(res)
+
+# способ 6
+ranges = range(5, 15), range(14, 24), range(23, 31)
+
+P = set(range(5, 31))
+Q = set(range(14, 24))
+res = []
+for range in ranges:
+    A = set(range)
+    print(2, A)
+    if (P == Q) <= (not A):
+        res.append(range)
+    
+print(res)
