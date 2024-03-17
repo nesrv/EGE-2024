@@ -1,6 +1,5 @@
 from turtle import *
-from collections import deque
-import time
+
 t = Turtle()
 
 t.screen.setup(1000, 900)
@@ -24,8 +23,6 @@ for x in range(-300, 100, 20):
     t.penup()
 
 t.speed(5)
-
-
 
 
 t.setpos(0, 0)
