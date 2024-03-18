@@ -79,3 +79,21 @@ for range in ranges:
         res.append(range)
     
 print(res)
+
+
+# ((x ∈ P) ≡ (x ∈ Q)) → ¬(x ∈ A)
+
+P = range(5, 30+1)
+Q = range(14, 23+1)
+
+l = set()
+
+ranges = range(5, 15), range(14, 24), range(23, 31)
+for A in ranges:
+    for x in range(5, 31):
+        if (((x in P) == (x in Q)) <= (not (x in A))) == 0:
+            break
+    else:
+        l.add(A)
+
+print(*l)
