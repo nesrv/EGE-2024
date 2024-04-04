@@ -1,31 +1,23 @@
-from itertools import *
-# alphabet = '89'
-# c = 0
-# x = 2**62
-# print(len(str(x)))
-# print (159/19)
-# for i in product(alphabet, repeat=18):
-#     s = sum(int(x) for x in i)
-#     if s == 159:
-#         c+=1
+from functools import cache
 
-# print(c)
+a = 2 ** 63 - 1
+a = tuple(map(int, str(a)))
+len_a = len(a)
+print(a)
 
-# # 50388 + 816
 
-# 9223372036854775808
-# y = 9777777777777777777
-y = 4611686018427387904
-a = 1599999999999999999
-b = 9999999999999999999
-# c = 0
-# for i in range(a,b):
-#     s = sum(int(x) for x in str(i))
-#     if s == 159:
-#         c += 1
-#         print(i)
-# gen = (x for x in for x in range(a, b) if sum(int(y) for y in str(x)) == 159)
-gen = (x for x in range(a,b) if sum(int(a) for a in str(x))==159)
+@cache
+def f(s, l, fl):
+    if l == 0:
+        return s == 159     
+    R = 10 if not fl else a[-l] + 1
+    S = 0
+    for x in range(R):
+        S += f(s + x, l - 1, fl and (x == a[-l]))
 
-print(next(gen)) 
-print(next(gen)) 
+    return S
+
+
+print(f(0, len_a, 1))
+
+
