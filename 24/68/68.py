@@ -1,8 +1,8 @@
-f = open("24/txt.txt").readline()
+f = open("24/68/68.txt").readline()
 s = []
 mc = 0
 for i in range(len(f)):
-    if f[i] in 'AB':
+    if f[i] in 'XY':
         s.append((f[i], i))
        
 for x in range(len(s) - 2):   
