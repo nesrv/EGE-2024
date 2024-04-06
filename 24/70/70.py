@@ -16,10 +16,10 @@ for x in range(1, len(s)-1):
     else:
         D += 1
     if C > 2 or D > 2:
-        max_x = max(max_x, s[x][1] - start - 1)
-        start = s[x-2][1]
-        C = 1 if C > 2 else C
-        D = 1 if D > 2 else D
+        max_x = max(max_x, s[x-1][1] - start - 1)
+        start = s[x-C-D][1]
+        C = 2 if C > 2 else C
+        D = 2 if D > 2 else D
        
 
 
