@@ -14,9 +14,9 @@ for t1 in range(74,223):
 print(min(lst))        # 42
 
 
-from itertools import combinations
+# from itertools import combinations
 
-ox = range(74, 224)
-res = []
-for t1,t2 in combinations(ox, 2):
-  ...
+# ox = range(74, 224)
+# res = []
+# for t1,t2 in combinations(ox, 2):
+#   ...

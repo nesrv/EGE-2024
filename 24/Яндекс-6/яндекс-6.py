@@ -12,4 +12,4 @@ for i in range(len(f)-1):
         max_c = max(max_c, c)
         c = 1
     
-print(max_c)
+print(max_c) # 23
