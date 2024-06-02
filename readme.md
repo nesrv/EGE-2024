@@ -9,9 +9,15 @@
 
 * [Вариант 6 досрок](https://education.yandex.ru/ege/variants/2e54e71c-dc2d-4835-9353-440269bf6ace/task/1)
 
+ * [Вариант 8 яндекс](https://education.yandex.ru/ege/variants/acef8ca0-4af3-4da7-8f39-c138b0d918c9/task/1)
+
 ## Вариант 5 ответы 
 
 ![alt text](img/answers_5_усложн.png)
 
 ## Вариант 6
-![alt text](image.png)
+![alt text](img/answers_6_яндекс.png)
+
+
+## Вариант 8 
+![alt text](img/answers_8_яндекс.png)
