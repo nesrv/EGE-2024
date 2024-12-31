@@ -1,9 +1,11 @@
-for x in range(112_500_00, 112_550_000 + 1):
+
+for n in range(110_250_000, 110_300_000 + 1):
     set_d = set()
-    for d in range(2, int(x ** 0.5) + 1):
-        if x % d == 0:
-            set_d. add(x // d)
-            if len(set_d) == 2:
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            set_d |= {i, n // i}
+            if len(set_d) > 2:
                 break
-    if set_d and sum(set_d) % 10_000 == 1214:
-        print(x)
+    set_d = sorted(set_d)
+    if sum(set_d[-2:]) % 10000 == 1002:
+        print(n)
