@@ -1,11 +1,12 @@
-from re import *
+import re
 
-# s = 'abcbabcdefgabcdefgh'
+s = 'abcbabcdefgabcdefghвыф3212'
+# s = 'acmsee'
+# s = open("24 (4).txt").read()
+# t = r'(.).*\1'
+t = r'b(?!(\w).*\1)\w+'
 
-s = open("24 (4).txt").read()
-t = r'(.).*\1'
-
-res = search(t,s)
+res = re.search(t,s)
 
 print(res)
 
