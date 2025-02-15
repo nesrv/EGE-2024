@@ -15,13 +15,14 @@ f = '''
 f = open('25/demo_2025_26.txt')
 n = int(f.readline())
 
-a = [list(map(int,s.split())) for s in f]
-passed = filter(lambda x: x[1:].count(2)==0, a)
+all = [list(map(int,s.split())) for s in f]
+
+passed = filter(lambda x: x[1:].count(2)==0, all)
 passed = sorted(passed, key = lambda x: (-mean(x[1:]),x[0]))
-passed = passed[:int(len(a)*0.25)]
+passed = passed[:int(len(all)*0.25)]
 print(passed[-1])
 
-failed = filter(lambda x: x[1:].count(2)>2, a)
+failed = filter(lambda x: x[1:].count(2)>2, all)
 failed = sorted(failed, key = lambda x: ((x[1:-1]).count(2), x[0]))
 print(failed[0])
 
