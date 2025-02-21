@@ -18,7 +18,6 @@ for st in f:
   
 # print('Поступили в 1 очередь', *enter.items(), sep='\n', end='\n\n') 
 # print('Ждут поступления', *st_1.items(), sep='\n', end='\n')
-
 st_1.sort(reverse=True, key=lambda x: x[2])
 # print(*st_1, sep='\n', end='\n' )
 # забираем студентов по 2а критерию
@@ -29,10 +28,8 @@ for student in st_1:
         counter += 1
         st_1.remove(student)
 
-
 # print('Поступили в 1+2 очередь', *enter.items(), sep='\n', end='\n') 
 # print('Не поступили', st_1, sep='\n', end='\n')     
-
 while counter < M:
     student = st_1.pop(0)
     id_st, id_uni, score, status = student
