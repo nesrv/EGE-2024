@@ -1,12 +1,18 @@
 # 4229
 
-f = open("25/stat-71.txt")
+f = open("26/статград/stat-71.txt")
 len_all = f.readline()
 all = [list(map(int,s.split())) for s in f]
-for i in range(len(all)):
-    without_negative = sum(filter(lambda x: x > 0, all[i][1:]))
-    without_zero = len(list((filter(lambda x: x != 0, all[i][1:]))))
-    all[i].extend((sum(all[i][1:]),without_negative, without_zero) )
+for user in all:
+  
+    without_negative = sum(filter(lambda x: x > 0, user[1:]))
+    without_zero = len(list((filter(lambda x: x != 0, user[1:]))))
+    user.extend((sum(user[1:]),without_negative, without_zero) )
+
+# for i in range(len(all)):
+#     without_negative = sum(filter(lambda x: x > 0, all[i][1:]))
+#     without_zero = len(list((filter(lambda x: x != 0, all[i][1:]))))
+#     all[i].extend((sum(all[i][1:]),without_negative, without_zero) )
   
 all.sort(key=lambda x: (-x[-3], -x[-2], -x[-1], x[0]))    
 # взять третью часть от всех данных

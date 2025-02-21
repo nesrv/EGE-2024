@@ -1,5 +1,6 @@
+from math import  dist
 f = open("27/ДЕМО-2025/txt.txt")
-
+# f = open("27/ДЕМО-2025/demo_2025_27_Б.txt")
 f.readline()
 ans = []
 min_summ = 10**10
@@ -10,9 +11,11 @@ for i in range (len(stars) - 1):
         center1 = stars[i]
         center2 = stars[j]
         summ = 0
-        for star in stars:
-            d1 = ((star[0] - center1[0]) ** 2 + (star[1] - center1[1]) ** 2)**0.5
-            d2 = ((star[0] - center2[0]) ** 2 + (star[1] - center2[1]) ** 2)**0.5
+        for star in stars:         
+            
+            d1 = dist(center1, star)
+            d2 = dist(center2, star)
+      
             summ += min(d1, d2)
         if summ < min_summ:
             min_summ = summ
