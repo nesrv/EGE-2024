@@ -10,13 +10,15 @@ def f(n):
 
 
 def f2(n):
-    if n <= 1259241:
-        return 2 + 6 * (n - 1)
-    return 7555442 - 7555444 
+    return 2 + 6 * (n - 1)
 
-x = (7555444 - 2) / 6 + 1
-x = 1259241
-print(x)
 
-print(f2(1259241))
-print(7555444)
+
+print(f2(10))
+for x in range(1,10**10):
+    if f2(x) > 7555444:
+        print(x)
+        break
+
+print(f2(1259242))
+
