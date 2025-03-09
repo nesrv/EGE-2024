@@ -9,50 +9,35 @@ print(M, P)
 lst = [list(map(int, x.split())) for x in f]
 lst = [[x[0], x[1], sum(x) + 3] for x in lst]
 
-lst.sort(key=lambda x: (x[0], -x[1], x[2]))
-working = lst[:M]
-waiting = lst[M:]
+lst.sort(key=lambda x: (x[0], -x[1]))
+lst_working = lst[:M]
 
-# [457, 13, 473]
-# print('----все-----')
-# print(lst[-1], sep='\n')
-# #
-# #
-# exit(100)
-#
+lst_working.sort(key=lambda x: x[2])
 
-# print('----печатают-----')
-# print(*working, sep='\n')
-#
+lst_waiting = lst[M:]
 
-#
-# print('----ждут-----')
-# print(*waiting, sep='\n')
+[457, 13, 473]
+print('----печатают-----')
+print(*lst_working, sep='\n')
 
-pause_printer = []
+print('----ждут-----')
 
-i = 0
+print(*lst_waiting[:M], sep='\n')
+print('----последние M-----')
+print(lst_waiting[-3:], sep='\n')
 pause = 0
-c = 0
-while waiting:
-    waiting_printer = waiting[i]
-    # print(i)
-    for j in range(0, len(working)):
-        if waiting_printer[0] >= working[j][2]:
-            working[j] = waiting_printer
-            waiting.pop(i)
-            c += 1
-            working.sort(key=lambda x: x[2])
-            i = 0
-            break
-    else:
-        i += 1
-        # pause += 1
-        if i >= len(waiting):
-            pause += 1
-            pause_printer.append(waiting_printer)
-            waiting.pop(i-1)
-            i = 0
+
+while lst_waiting:
+    waiting_p = lst_waiting.pop(0)
+    working_p = lst_working.pop(0)
+    if working_p[2] < waiting_p[0]:
+        pause +=1
+    lst_working.append(waiting_p)
+    lst_working.sort(key=lambda x: x[2])
+
+
+
+
 
 
 # #
@@ -60,5 +45,5 @@ while waiting:
 # print(*working, sep='\n')
 # print('----ждут-----', c)
 # print(*waiting[:5], sep='\n')
-print(pause)
-print(len(pause_printer))
+print(pause, working_p)
+
