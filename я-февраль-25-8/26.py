@@ -3,7 +3,7 @@
 # В палату мер и весов поступил набор из N гирек.
 
 f = open("/home/user/projects/EGE-2025/я-февраль-25-8/txt.txt")
-# f = open("/home/user/projects/EGE-2025/я-февраль-25-8/26.txt")
+# f = open("/home/user/projects/EGE-2025/я-февраль-25-8/26-test.txt")
 
 n = int(f.readline())
 
